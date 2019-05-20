@@ -43,7 +43,7 @@ Gem::Specification.new do |s|
   s.name = "statsample"
   s.version = Statsample::VERSION
   s.date = Date.today.to_s
-  s.homepage = "https://github.com/sciruby/statsample"
+  s.homepage = "https://github.com/fpoltronieri/statsample"
 
   s.authors = ["Claudio Bustos", "Carlos Agarie"]
   s.email = ["clbustos@gmail.com", "carlos@onox.com.br"]
@@ -60,7 +60,7 @@ Gem::Specification.new do |s|
   s.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
 
-  s.add_runtime_dependency 'daru', '~> 0.1.6'
+  s.add_runtime_dependency 'daru'
   s.add_runtime_dependency 'spreadsheet', '~> 1.1'
   s.add_runtime_dependency 'reportbuilder', '~> 1.4'
   s.add_runtime_dependency 'minimization', '~> 0.2'
@@ -71,17 +71,18 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'distribution', '~> 0.7'
   s.add_runtime_dependency 'awesome_print', '~> 1.6'
 
-  s.add_development_dependency 'bundler', '~> 1.10'
-  s.add_development_dependency 'rake', '~> 10.4'
-  s.add_development_dependency 'rdoc', '~> 4.2'
-  s.add_development_dependency 'shoulda', '~> 3.5'
-  s.add_development_dependency 'shoulda-matchers', '~> 2.2'
+  s.add_development_dependency 'bundler', '~> 2.0'
+  s.add_development_dependency 'rdoc'
+  s.add_development_dependency 'shoulda'
+  s.add_development_dependency 'shoulda-matchers'
   s.add_development_dependency 'minitest', '~> 5.7'
   s.add_development_dependency 'gettext', '~> 3.1'
   s.add_development_dependency 'mocha', '~> 1.1'
   s.add_development_dependency 'nmatrix', '~> 0.2.1'
   s.add_development_dependency 'gsl', '~> 2.1'
   s.add_development_dependency 'pry'
+  s.add_development_dependency 'rake'
   s.add_development_dependency 'rubocop'
-  s.add_development_dependency 'activesupport', '~> 4.2'
+  s.add_development_dependency 'rubocop-performance'
+  s.add_development_dependency 'activesupport'
 end
