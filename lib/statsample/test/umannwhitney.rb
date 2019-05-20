@@ -147,6 +147,19 @@ module Statsample
           send("#{k}=", @opts[k])
         }       
       end
+
+      # print report to stdout
+      def report_stdout
+        printf("%s results\n", @name)
+        printf("Sum of ranks r1 %0.3f\n", @r1)
+        printf("Sum of ranks r2 %0.3f\n", @r2)
+        printf("U Value %0.3f\n", @u)
+        printf("Z %0.3f (p: %0.3f)\n", z, probability_z)
+        if @n1*@n2<MAX_MN_EXACT
+          printf("Exact p (Dinneen & Blakesley, 1973): %0.3f", probability_exact)
+        end
+      end
+
       def report_building(generator) # :nodoc:
         generator.section(:name=>@name) do |s|
           s.table(:name=>_("%s results") % @name) do |t|
