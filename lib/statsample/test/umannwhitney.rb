@@ -118,8 +118,11 @@ module Statsample
       def initialize(v1,v2, opts=Hash.new)
         @v1      = v1
         @v2      = v2
-        v1_valid = v1.reject_values(*Daru::MISSING_VALUES).reset_index!
-        v2_valid = v2.reject_values(*Daru::MISSING_VALUES).reset_index!
+        #v1_valid = v1.reject_values(*Daru::MISSING_VALUES).reset_index!
+        #v2_valid = v2.reject_values(*Daru::MISSING_VALUES).reset_index!
+        # monkey patch to solve reject_values undefined method error
+        v1_valid = (v1 - Daru::MISSING_VALUES)
+        v2_valid = (v2 - Daru::MISSING_VALUES)
         @n1      = v1_valid.size
         @n2      = v2_valid.size
         data     = Daru::Vector.new(v1_valid.to_a + v2_valid.to_a)
