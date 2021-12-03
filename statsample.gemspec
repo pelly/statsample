@@ -56,7 +56,8 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ["History.txt", "LICENSE.txt", "README.md", "references.txt"]
   s.require_paths = ["lib"]
 
-  s.files = `git ls-files`.split("\n")
+  s.files =  Dir.chdir(File.expand_path("..", __FILE__)) {  Dir.glob("**/*", File::FNM_DOTMATCH).reject { |f| f.match(%r{^(test|spec|features)/}) } }
+
   s.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
 
